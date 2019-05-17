@@ -1,4 +1,5 @@
-import { Rules, DefaultFuzzyRules } from '@/model/data'
+import { Rules } from '@/model/Rules'
+import defaultFuzzyRules from '@/model/defaultFuzzyRules'
 
 const PREFIX = 'yuyun:fsaw'
 
@@ -50,7 +51,7 @@ class Settings {
   get weights () : Rules {
     if (this._weights === undefined) {
       const wsRaw = localStorage.getItem(WEIGHTS)
-      this._weights = (wsRaw === null) ? DefaultFuzzyRules : (JSON.parse(wsRaw) as Rules)
+      this._weights = (wsRaw === null) ? defaultFuzzyRules : (JSON.parse(wsRaw) as Rules)
     }
     return this._weights
   }

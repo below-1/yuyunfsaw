@@ -9,7 +9,7 @@ export const FMain = {
   st: new FuzzyTuple(0.50, 0.75, 0.1, 'ST', 'Sangat Tinggi')
 }
 
-export const DefaultFuzzyRules: Rules = {
+const DefaultFuzzyRules: Rules = {
   umur: FMain.c,
   pendidikan: FMain.t,
   pekerjaan: FMain.t,
@@ -24,3 +24,5 @@ export const DefaultFuzzyRules: Rules = {
   sumberAir: FMain.st,
   sumberListrik: FMain.t
 }
+
+export default DefaultFuzzyRules

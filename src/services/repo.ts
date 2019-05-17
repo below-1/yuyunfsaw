@@ -18,7 +18,7 @@ export default {
     const fid = Math.random() * (MAX_ID - MIN_ID) + MIN_ID
     const intId = Math.floor(fid)
     const _id = `${intId}`
-    pouchDB.put({
+    await pouchDB.put({
       _id,
       ...payload
     })
