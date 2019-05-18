@@ -14,7 +14,14 @@ export default new Router({
     {
       path: '/app',
       name: 'app',
-      component: () => import('./views/app/App.vue')
+      component: () => import('./views/app/App.vue'),
+      children: [
+        {
+          path: 'settings',
+          name: 'settings',
+          component: () => import('./views/app/settings/index.vue')
+        }
+      ]
     },
     {
       path: '/about',

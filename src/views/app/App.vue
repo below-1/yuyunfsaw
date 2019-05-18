@@ -16,7 +16,9 @@
 </template>
 
 <script>
-export default {
+import { Component, Vue } from 'vue-property-decorator';
+
+@Component({
   name: 'MainApp',
   data () {
     return {
@@ -64,7 +66,8 @@ export default {
       ]
     }
   }
-}
+})
+export default class MainApp extends Vue {}
 </script>
 
 <style>

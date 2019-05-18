@@ -45,6 +45,7 @@ class Settings {
 
   set description(s: string) {
     localStorage.setItem(APP_DESCRIPTION, s)
+    console.log('HERE')
     this._description = s
   }
 
