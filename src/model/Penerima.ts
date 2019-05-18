@@ -24,3 +24,7 @@ export interface Penerima {
   sumberAir: KSumberAir
   sumberListrik: KSumberListrik
 }
+
+export interface PenerimaEntity extends Penerima {
+  _id: string
+}

@@ -22,5 +22,9 @@ export default {
       _id,
       ...payload
     })
+  },
+
+  async update (id: string, rev: string, payload: Penerima) {
+    
   }
 }

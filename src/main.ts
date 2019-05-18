@@ -7,6 +7,12 @@ import './registerServiceWorker'
 
 const VueParticles = require('vue-particles')
 
+import { library } from '@fortawesome/fontawesome-svg-core'
+import { faFoursquare } from '@fortawesome/free-brands-svg-icons'
+import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
+library.add(faFoursquare)
+Vue.component('font-awesome-icon', FontAwesomeIcon)
+
 Vue.config.productionTip = false
 Vue.use(Bus)
 Vue.use(VueParticles.default)
