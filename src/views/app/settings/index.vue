@@ -69,6 +69,28 @@
         </v-flex>
       </v-layout>
 
+      <v-layout row class="py-4">
+        <v-flex md8>
+          <v-card flat>
+            <v-toolbar dark color="primary lighten-2" dense flat>
+              <v-toolbar-title>Aturan</v-toolbar-title>
+              <v-spacer></v-spacer>
+            </v-toolbar>
+            <v-card-text>
+
+              <v-layout row v-for="(ruleKey, idx) in ruleKeys" :key="`rule-list-tile-${idx}`">
+                <v-flex xs4>
+                  Aturan {{ruleKey}}
+                </v-flex>
+                <v-flex xs8>
+                  <v-select :items="ruleOptions" v-model="weights[`${ruleKey}`]" :label="`Aturan ${ruleKey}`" />
+                </v-flex>
+              </v-layout>
+            </v-card-text>
+          </v-card>
+        </v-flex>
+      </v-layout>
+
       <v-dialog v-model="addDatasetDialog" max-width="500">
         <v-card>
           <v-card-title>Tambah Dataset Baru</v-card-title>
@@ -89,6 +111,35 @@
 import { Component, Vue } from 'vue-property-decorator';
 import settings from '@/services/settings'
 import defaultFuzzyRules from '@/model/defaultFuzzyRules'
+import FMain from '@/model/FMain'
+
+const FMainList = [
+  FMain.sr,
+  FMain.r,
+  FMain.c,
+  FMain.t,
+  FMain.st
+]
+const FMainOptions = FMainList.map(ft => ({
+  text: ft.toString(),
+  value: ft
+}))
+
+const ruleKeys = [
+  'umur',
+  'pendidikan',
+  'pekerjaan',
+  'penghasilan',
+  'tanah',
+  'rumah',
+  'jumlahPenghuni',
+  'atap',
+  'dinding',
+  'lantai',
+  'kamarMandi',
+  'sumberAir',
+  'sumberListrik'
+]
 
 @Component({
   name: 'AppSettings',
@@ -102,7 +153,9 @@ import defaultFuzzyRules from '@/model/defaultFuzzyRules'
       username: '',
       password: '',
       addDatasetDialog: false,
-      addDatasetVal: ''
+      addDatasetVal: '',
+      ruleOptions: FMainOptions,
+      ruleKeys
     }
   },
   methods: {
