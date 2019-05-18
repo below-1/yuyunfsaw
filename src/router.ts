@@ -17,9 +17,26 @@ export default new Router({
       component: () => import('./views/app/App.vue'),
       children: [
         {
+          path: 'data',
+          name: 'data',
+          component: () => import('./views/app/data/index.vue'),
+          children: [
+            {
+              path: 'add',
+              name: 'add-data',
+              component: () => import('./views/app/data/add.vue')
+            }
+          ]
+        },
+        {
           path: 'settings',
           name: 'settings',
           component: () => import('./views/app/settings/index.vue')
+        },
+        {
+          path: 'backup',
+          name: 'backup',
+          component: () => import('./views/app/backup/index.vue')
         }
       ]
     },

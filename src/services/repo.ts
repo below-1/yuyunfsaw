@@ -1,10 +1,8 @@
 import { Penerima } from '@/model/Penerima'
-import PouchDB from 'pouchdb'
+import pouchDB from './pouchDB'
 
 const MAX_ID = 99999999
 const MIN_ID = 1
-const DB_NAME = 'yuyun.fsaw.penerima'
-const pouchDB = new PouchDB(DB_NAME)
 
 export default {
   async findAll (keyword?: string) {

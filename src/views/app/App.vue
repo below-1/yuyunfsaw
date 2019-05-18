@@ -36,7 +36,7 @@ import { Component, Vue } from 'vue-property-decorator';
         {
           path: '/app/backup',
           icon: 'file_copy',
-          title: 'Import'
+          title: 'Backup'
         },
         {
           path: '/app/settings',

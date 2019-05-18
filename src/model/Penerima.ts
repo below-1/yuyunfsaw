@@ -27,4 +27,23 @@ export interface Penerima {
 
 export interface PenerimaEntity extends Penerima {
   _id: string
+  _rev: string
+}
+
+export const defaultPenerima: Penerima = {
+  dataset: '',
+  nama: '',
+  umur: 0,
+  pendidikan: KPendidikan.TidakSekolah,
+  pekerjaan: KPekerjaan.Buruh,
+  penghasilan: 0,
+  tanah: KTanah.Bukan,
+  rumah: KRumah.BukanMilikSendiri,
+  jumlahPenghuni: 1,
+  atap: C3Enum.CukupLayak,
+  dinding: C3Enum.CukupLayak,
+  lantai: C3Enum.CukupLayak,
+  kamarMandi: KKamarMandi.MCKKomunal,
+  sumberAir: KSumberAir.AirKemasan,
+  sumberListrik: KSumberListrik.BukanListrik
 }

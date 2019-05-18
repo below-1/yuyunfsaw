@@ -93,3 +93,28 @@ export const SUMBER_LISTRIK_OPTIONS: DiscWeightOptions<KSumberListrik>[] = [
   { label: 'PLN Non Meteran', value: KSumberListrik.PLNNonMeteran, weight: 2 },
   { label: 'Listrik Non PLN / Bukan Listrik', value: KSumberListrik.BukanListrik, weight: 3 }
 ]
+
+
+type LabelAndValue<T> = DiscWeightOptions<T> | DiscFuzzOptions<T>
+function asVuetifyOptions<T> (options: LabelAndValue<T>[]) {
+  return options.map(opt => {
+    return {
+      text: opt.label,
+      value: opt.value
+    }
+  })
+}
+
+const c3VuetifyOptions = asVuetifyOptions<C3Enum>(C3_OPTIONS)
+export const vuetifyOptions = {
+  pendidikan: asVuetifyOptions<KPendidikan>(PENDIDIKAN_OPTIONS),
+  pekerjaan: asVuetifyOptions<KPekerjaan>(PEKERJAAN_OPTIONS),
+  tanah: asVuetifyOptions<KTanah>(TANAH_OPTIONS),
+  rumah: asVuetifyOptions<KRumah>(RUMAH_OPTIONS),
+  atap: c3VuetifyOptions,
+  lantai: c3VuetifyOptions,
+  dinding: c3VuetifyOptions,
+  kamarMandi: asVuetifyOptions<KKamarMandi>(KAMAR_MANDI_OPTIONS),
+  sumberAir: asVuetifyOptions<KSumberAir>(SUMBER_AIR_OPTIONS),
+  sumberListrik: asVuetifyOptions<KSumberListrik>(SUMBER_LISTRIK_OPTIONS)
+}
