@@ -35,7 +35,7 @@
             </template>
           </v-card-text>
           <v-card-actions>
-            <v-btn flat>Simpan</v-btn>
+            <v-btn flat @click="doAddPenerima">Simpan</v-btn>
             <v-btn flat>Batal</v-btn>
           </v-card-actions>
         </v-card>
@@ -47,8 +47,9 @@
 <script>
 import { Component, Vue } from 'vue-property-decorator'
 import settings from '@/services/settings'
-import { defaultPenerima } from '@/model/Penerima'
+import { Penerima, defaultPenerima } from '@/model/Penerima'
 import { vuetifyOptions } from '@/services/converter/options'
+import repo from '@/services/repo'
 
 const fieldsDescriptions = [
   {
@@ -147,6 +148,9 @@ const fieldsDescriptions = [
     async loadSettings () {
       this.datasets = settings.datasets
       this.activeDataset = settings.activeDataset
+    },
+    async doAddPenerima () {
+      await repo.add(this.penerima)
     }
   }
 })

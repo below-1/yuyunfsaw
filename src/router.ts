@@ -19,14 +19,12 @@ export default new Router({
         {
           path: 'data',
           name: 'data',
-          component: () => import('./views/app/data/index.vue'),
-          children: [
-            {
-              path: 'add',
-              name: 'add-data',
-              component: () => import('./views/app/data/add.vue')
-            }
-          ]
+          component: () => import('./views/app/data/index.vue')
+        },
+        {
+          path: 'add-data',
+          name: 'add-data',
+          component: () => import('./views/app/data/add.vue')
         },
         {
           path: 'settings',

@@ -5,11 +5,14 @@ const MAX_ID = 99999999
 const MIN_ID = 1
 
 export default {
-  async findAll (keyword?: string) {
-    let _k = (keyword === undefined) ? '' : keyword
-    const docs = await pouchDB.allDocs()
-    docs.rows.map(row => {
+  async findAll (dataset: string) {
+    // let _k = (keyword === undefined) ? '' : keyword
+    const result = await pouchDB.find({
+      selector: {
+        dataset
+      }
     })
+    return result.docs
   },
 
   async add (payload: Penerima) {
