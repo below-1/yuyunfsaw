@@ -35,7 +35,7 @@
             </template>
           </v-card-text>
           <v-card-actions>
-            <v-btn flat @click="doAddPenerima">Simpan</v-btn>
+            <v-btn v-bind:disabled="dataInvalid" flat @click="doAddPenerima">Simpan</v-btn>
             <v-btn flat>Batal</v-btn>
           </v-card-actions>
         </v-card>
@@ -141,6 +141,11 @@ const fieldsDescriptions = [
       activeDataset: ''
     }
   },
+  computed: {
+    dataInvalid () {
+      return this.penerima.nama === '' && this.activeDataset === ''
+    }
+  },
   mounted () {
     this.loadSettings()
   },
@@ -151,6 +156,7 @@ const fieldsDescriptions = [
     },
     async doAddPenerima () {
       await repo.add(this.penerima)
+      this.$router.push('/app/data')
     }
   }
 })

@@ -31,7 +31,7 @@ export const PENDIDIKAN_OPTIONS: DiscWeightOptions<KPendidikan>[] = [
 export const PEKERJAAN_OPTIONS: DiscWeightOptions<KPekerjaan>[] = [
   { label: 'PNS', value: KPekerjaan.PNS, weight: 1 },
   { label: 'Wirausaha', value: KPekerjaan.Wirausaha, weight: 2 },
-  { label: 'Swasta', value: KPekerjaan.Swasta, weight: 3 },
+  { label: 'Wiraswasta', value: KPekerjaan.Swasta, weight: 3 },
   { label: 'Petani', value: KPekerjaan.Petani, weight: 4 },
   { label: 'Buruh', value: KPekerjaan.Buruh, weight: 5 }
 ]
@@ -78,20 +78,20 @@ export const C3_OPTIONS: DiscFuzzOptions<C3Enum>[] = [
 
 export const KAMAR_MANDI_OPTIONS: DiscWeightOptions<KKamarMandi>[] = [
   { label: 'Sendiri', value: KKamarMandi.Sendiri, weight: 1 },
-  { label: 'MCK Komunal / Bersama', value: KKamarMandi.MCKKomunal, weight: 2 },
+  { label: 'Bersama', value: KKamarMandi.MCKKomunal, weight: 2 },
   { label: 'Tidak Ada', value: KKamarMandi.TidakAda, weight: 3 }
 ]
 
 export const SUMBER_AIR_OPTIONS: DiscWeightOptions<KSumberAir>[] = [
   { label: 'PDAM', value: KSumberAir.PDAM, weight: 1 },
   { label: 'Air Kemasan', value: KSumberAir.AirKemasan, weight: 2 },
-  { label: 'Mata Air, Air Hujan, Sumar', value: KSumberAir.Lain, weight: 3 }
+  { label: 'Mata Air, Sumur', value: KSumberAir.Lain, weight: 3 }
 ]
 
 export const SUMBER_LISTRIK_OPTIONS: DiscWeightOptions<KSumberListrik>[] = [
-  { label: 'PLN Meteran', value: KSumberListrik.PLNMeteran, weight: 1 },
+  { label: 'Listrik, PLN', value: KSumberListrik.PLNMeteran, weight: 1 },
   { label: 'PLN Non Meteran', value: KSumberListrik.PLNNonMeteran, weight: 2 },
-  { label: 'Listrik Non PLN / Bukan Listrik', value: KSumberListrik.BukanListrik, weight: 3 }
+  { label: 'Bukan Listrik', value: KSumberListrik.BukanListrik, weight: 3 }
 ]
 
 

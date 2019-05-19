@@ -84,16 +84,16 @@ const fuzzyConverter = {
 export default function (p: Penerima) {
   const fc = fuzzyConverter
   return {
-    umur: fc.umur(p.umur).crisp(),
+    umur: fc.umur(p.umur),
     pendidikan: fc.pendidikan(p.pendidikan),
     pekerjaan: fc.pekerjaan(p.pekerjaan),
-    penghasilan: fc.penghasilan(p.penghasilan).crisp(),
+    penghasilan: fc.penghasilan(p.penghasilan),
     tanah: fc.tanah(p.tanah),
     rumah: fc.rumah(p.rumah),
     jumlahPenghuni: fc.jumlahPenghuni(p.jumlahPenghuni),
-    atap: fc.atap(p.atap).crisp(),
-    dinding: fc.dinding(p.dinding).crisp(),
-    lantai: fc.lantai(p.lantai).crisp(),
+    atap: fc.atap(p.atap),
+    dinding: fc.dinding(p.dinding),
+    lantai: fc.lantai(p.lantai),
     kamarMandi: fc.kamarMandi(p.kamarMandi),
     sumberAir: fc.sumberAir(p.sumberAir),
     sumberListrik: fc.sumberListrik(p.sumberListrik)

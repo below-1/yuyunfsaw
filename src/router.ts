@@ -27,6 +27,12 @@ export default new Router({
           component: () => import('./views/app/data/add.vue')
         },
         {
+          path: 'update-data/:id',
+          props: true,
+          name: 'update-data',
+          component: () => import('./views/app/data/update.vue')
+        },
+        {
           path: 'settings',
           name: 'settings',
           component: () => import('./views/app/settings/index.vue')
@@ -35,6 +41,11 @@ export default new Router({
           path: 'backup',
           name: 'backup',
           component: () => import('./views/app/backup/index.vue')
+        },
+        {
+          path: 'summary',
+          name: 'summary',
+          component: () => import('./views/app/summary/index.vue')
         }
       ]
     },

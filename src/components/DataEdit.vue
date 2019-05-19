@@ -1,49 +1,43 @@
 <template>
   <div>
     <fsaw-loader :show="loading"/>
-    <v-container>
-      <v-layout row justify-center>
-        <v-flex xs12 md6>
-          <v-card flat>
-            <v-toolbar dense flat dark color="primary lighten-1">
-              <v-toolbar-title>Tambah Data</v-toolbar-title>
-            </v-toolbar>
-            <v-card-text>
-              <v-select
-                :items="datasets"
-                v-model="penerima.dataset"
-                label="Dataset"
-              />
-              <template v-for="fd in fieldsDescriptions">
-                <v-text-field v-if="fd.type === 'number'"
-                  :key="`add-field-${fd.field}`"
-                  type="number"
-                  v-model="penerima[fd.field]"
-                  :min="fd.min"
-                  :max="fd.max"
-                  :label="fd.label"
-                />
-                <v-select v-if="fd.type === 'option'"
-                  :key="`add-field-${fd.field}`"
-                  :items="options[fd.field]"
-                  v-model="penerima[fd.field]"
-                  :label="fd.label"
-                />
-                <v-text-field v-if="fd.type === 'short-text'"
-                  :key="`add-field-${fd.field}`"
-                  v-model="penerima[fd.field]"
-                  :label="fd.label"
-                />
-              </template>
-            </v-card-text>
-            <v-card-actions>
-              <v-btn v-bind:disabled="dataInvalid" flat @click="doUpdatePenerima">Simpan</v-btn>
-              <v-btn flat>Batal</v-btn>
-            </v-card-actions>
-          </v-card>
-        </v-flex>
-      </v-layout>
-    </v-container>
+    <v-card flat>
+      <v-toolbar dense flat dark color="primary lighten-1">
+        <v-toolbar-title>Ubah Data</v-toolbar-title>
+      </v-toolbar>
+      <v-card-text>
+        <v-select
+          :items="datasets"
+          v-model="penerima.dataset"
+          label="Dataset"
+        />
+        <template v-for="fd in fieldsDescriptions">
+          <v-text-field v-if="fd.type === 'number'"
+            :key="`add-field-${fd.field}`"
+            type="number"
+            v-model="penerima[fd.field]"
+            :min="fd.min"
+            :max="fd.max"
+            :label="fd.label"
+          />
+          <v-select v-if="fd.type === 'option'"
+            :key="`add-field-${fd.field}`"
+            :items="options[fd.field]"
+            v-model="penerima[fd.field]"
+            :label="fd.label"
+          />
+          <v-text-field v-if="fd.type === 'short-text'"
+            :key="`add-field-${fd.field}`"
+            v-model="penerima[fd.field]"
+            :label="fd.label"
+          />
+        </template>
+      </v-card-text>
+      <v-card-actions>
+        <v-btn v-bind:disabled="dataInvalid" flat @click="doUpdatePenerima">Simpan</v-btn>
+        <v-btn flat>Batal</v-btn>
+      </v-card-actions>
+    </v-card>
   </div>
 </template>
 
@@ -135,10 +129,10 @@ const fieldsDescriptions = [
 
 @Component({
   props: ['id'],
-  name: 'UpdateData',
+  name: 'InlineEditData',
   data () {
     return {
-      loading: true,
+      loading: false,
       penerima: defaultPenerima,
       rev: '',
       options: vuetifyOptions,
@@ -154,7 +148,10 @@ const fieldsDescriptions = [
   },
   mounted () {
     this.loadSettings()
-      .then(() => this.loadDataPenerima())
+      .then(() => this.loadDataPenerima(this.id))
+      .catch(err => {
+        console.log(err)
+      })
   },
   methods: {
     async loadSettings () {
@@ -165,13 +162,18 @@ const fieldsDescriptions = [
       // await repo.add(this.penerima)
       // this.$router.push('/app/data')
     },
-    async loadDataPenerima () {
-      if (!this.id) return
+    async loadDataPenerima (id) {
+      if (id === undefined) return
       this.loading = true
-      const { _rev, ...penerima } = await repo.findById(this.id)
+      const { _rev, ...penerima } = await repo.findById(id)
       this.rev = _rev
       this.penerima = penerima
       this.loading = false
+    }
+  },
+  watch: {
+    id: function (val) {
+      this.loadDataPenerima(val)
     }
   }
 })

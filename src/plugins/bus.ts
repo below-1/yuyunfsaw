@@ -6,7 +6,7 @@ declare module 'vue/types/vue' {
   }
 }
 
-const bus = new Vue()
+export const bus = new Vue()
 const Bus: PluginObject<{}> = {
   install: (VueObj, options: any) => {
     VueObj.$bus = bus
