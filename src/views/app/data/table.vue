@@ -3,7 +3,7 @@
     <fsaw-loader :show="loading"/>
     <hot-table
       :data="items"
-      :readOnly="true"
+      readOnly
       :columns="hot.colMappings"
       :colHeaders="hot.colHeaders"
       :colWidths="hot.colWidths"

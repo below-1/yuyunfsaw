@@ -46,6 +46,11 @@ export default new Router({
           path: 'summary',
           name: 'summary',
           component: () => import('./views/app/summary/index.vue')
+        },
+        {
+          path: 'rank',
+          name: 'rank',
+          component: () => import('./views/app/fsaw/index.vue')
         }
       ]
     },

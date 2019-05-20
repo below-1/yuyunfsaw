@@ -1,6 +1,6 @@
 <template>
   <div>
-    <v-navigation-drawer app mini-variant dark>
+    <v-navigation-drawer app dark clipped width="220" mini-variant>
       <v-list two-line class="pt-0">
         <v-divider></v-divider>
         <v-list-tile v-for="nav in navItems" :to="nav.path" :key="nav.path">
@@ -31,7 +31,7 @@ import { Component, Vue } from 'vue-property-decorator';
         {
           path: '/app/data',
           icon: 'list',
-          title: 'Logout'
+          title: 'Data'
         },
         {
           path: '/app/backup',
@@ -46,17 +46,12 @@ import { Component, Vue } from 'vue-property-decorator';
         {
           path: '/app/summary',
           icon: 'bar_chart',
-          title: 'Import'
+          title: 'Rangkuman'
         },
         {
-          path: '/app/testing-single',
+          path: '/app/rank',
           icon: 'title',
-          title: 'Import'
-        },
-        {
-          path: '/app/testing-dset',
-          icon: 'text_fields',
-          title: 'Import'
+          title: 'Ranking'
         },
         {
           path: '/logout',

@@ -1,6 +1,6 @@
 <template>
   <div class="main-home">
-    <v-parallax src="/img/bg.jpg" id="home-parallax">
+    <v-parallax src="/img/bg4.jpg" id="home-parallax">
       <div id="parallax-stack">
         <vue-particles
           :color="particles.color"
@@ -12,14 +12,14 @@
           <v-container>
             <v-layout row>
               <v-flex sm6>
-                <div class="display-4 font-weight-bold black--text" style="padding-top: 100px;">{{ appName }}</div>
-                <div class="headline black--text font-weight-bold">{{ description }}</div>
+                <div class="display-4 font-weight-bold" style="padding-top: 100px;">{{ appName }}</div>
+                <div class="headline font-weight-bold">{{ description }}</div>
               </v-flex>
               <v-flex sm6 align-center justify-center>
                 <v-layout align-center justify-center fill-height>
                   <font-awesome-icon
                     :icon="['fab', 'foursquare']"
-                    class="primary--text text--darken-1 display-3"
+                    class="cyan--text text--darken-3 display-3"
                     style="padding-top: 80px; font-size: 240px !important;"></font-awesome-icon>
                 </v-layout>
               </v-flex>
@@ -28,10 +28,10 @@
         </div>
       </div>
     </v-parallax>
-    <v-footer height="auto" color="primary" app class="py-4">
+    <v-footer height="auto" app class="py-4">
       <v-layout row>
         <v-flex xs12>
-          <div class="text-xs-center title white--text">Yuyun</div>
+          <div class="text-xs-center title">Yuyun Sare Ora</div>
         </v-flex>
       </v-layout>
     </v-footer>
@@ -52,10 +52,10 @@ import settings from '@/services/settings'
       appName: settings.appName,
       description: settings.description,
       particles: {
-        color: '#222',
-        lineColor: '#555',
+        color: '#00bcd4',
+        lineColor: '#00838f',
         lineWidth: '2',
-        particlesNumber: 40
+        particlesNumber: 100
       }
     }
   }
@@ -67,7 +67,7 @@ export default class Home extends Vue {}
   #home-parallax {
     .v-parallax__content {
       padding: 0 !important;
-      background-color: rgba(255, 255, 255, 0.98);
+      background-color: rgba(0, 0, 0, 0.7);
     }
   }
 

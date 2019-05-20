@@ -3,7 +3,7 @@
     <v-layout row>
       <v-flex md6 class="text-md-center">
         <div class="headline">Rangkuman Data</div>
-        <v-select :items="datasets" v-model="activeDataset" label="Pilih Dataset..."></v-select>
+        <v-select @change="onDatasetChange" :items="datasets" v-model="activeDataset" label="Pilih Dataset..."></v-select>
       </v-flex>
     </v-layout>
   </v-container>  
@@ -13,6 +13,7 @@
 import { Component, Vue } from 'vue-property-decorator'
 import settings from '@/services/settings'
 import fuzzy from '@/services/converter/fuzzy'
+import summary from '@/services/summary'
 import repo from '@/services/repo'
 
 @Component({
@@ -35,8 +36,7 @@ import repo from '@/services/repo'
       this.loadData(val)
     },
     async loadData (dataset) {
-      const data = await repo.findAll(dataset, '')
-      const processed = data.map(fuzzy)
+      const processed = await summary(dataset)
       console.log(processed)
     }
   }

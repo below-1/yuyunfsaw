@@ -1,4 +1,4 @@
-import { Penerima } from '@/model/Penerima'
+import { Penerima, PenerimaEntity } from '@/model/Penerima'
 import pouchDB from './pouchDB'
 
 const MAX_ID = 99999999
@@ -12,7 +12,7 @@ class Repo {
     return `${intId}`
   }
 
-  async findAll (dataset: string, keyword: string) {
+  async findAll (dataset: string, keyword: string) : Promise<PenerimaEntity[]> {
     let _k = (keyword === undefined) ? '' : keyword
     const re = new RegExp(`${_k}`, 'i')
     const result = await pouchDB.find({
@@ -21,7 +21,7 @@ class Repo {
         nama: { $regex: re }
       }
     })
-    return result.docs
+    return result.docs as PenerimaEntity[]
   }
 
   async add (payload: Penerima) {
