@@ -20,6 +20,8 @@ import {
   SUMBER_LISTRIK_OPTIONS
 } from './options'
 
+const crisp = (ft: FuzzyTuple) => (ft.a + ft.b + ft.c) / 3.0
+
 type ContToFuzz = (x: number) => FuzzyTuple
 type ContToWeight = (x: number) => number
 type DiscToFuzz<T> = (x: T) => FuzzyTuple
@@ -84,16 +86,16 @@ const fuzzyConverter = {
 export default function (p: Penerima) {
   const fc = fuzzyConverter
   return {
-    umur: fc.umur(p.umur).crisp(),
+    umur: crisp(fc.umur(p.umur)),
     pendidikan: fc.pendidikan(p.pendidikan),
     pekerjaan: fc.pekerjaan(p.pekerjaan),
-    penghasilan: fc.penghasilan(p.penghasilan).crisp(),
+    penghasilan: crisp(fc.penghasilan(p.penghasilan)),
     tanah: fc.tanah(p.tanah),
     rumah: fc.rumah(p.rumah),
     jumlahPenghuni: fc.jumlahPenghuni(p.jumlahPenghuni),
-    atap: fc.atap(p.atap).crisp(),
-    dinding: fc.dinding(p.dinding).crisp(),
-    lantai: fc.lantai(p.lantai).crisp(),
+    atap: crisp(fc.atap(p.atap)),
+    dinding: crisp(fc.dinding(p.dinding)),
+    lantai: crisp(fc.lantai(p.lantai)),
     kamarMandi: fc.kamarMandi(p.kamarMandi),
     sumberAir: fc.sumberAir(p.sumberAir),
     sumberListrik: fc.sumberListrik(p.sumberListrik)

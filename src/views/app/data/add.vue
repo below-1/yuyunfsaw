@@ -156,6 +156,7 @@ const fieldsDescriptions = [
     },
     async doAddPenerima () {
       await repo.add(this.penerima)
+      alert('Sukses menambahkan data penerima')
       this.$router.push('/app/data')
     }
   }

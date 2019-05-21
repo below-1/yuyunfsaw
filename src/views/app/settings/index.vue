@@ -120,10 +120,18 @@ const FMainList = [
   FMain.t,
   FMain.st
 ]
-const FMainOptions = FMainList.map(ft => ({
-  text: ft.toString(),
-  value: ft
-}))
+const vuetifyRuleOption = (rule) => {
+  // console.log('rule=', rule)
+  const label = rule.label
+  const a = rule.a
+  const b = rule.b
+  const c = rule.c
+  const text = `${label} [${a.toFixed(2)}, ${b.toFixed(2)}, ${c.toFixed(2)}]`
+  const value = rule
+  return { text, value }
+}
+
+const FMainOptions = FMainList.map(vuetifyRuleOption)
 
 const ruleKeys = [
   'umur',
@@ -187,6 +195,13 @@ const ruleKeys = [
     changeDataset (dataset) {
       this.activeDataset = dataset
       console.log('HERE')
+    },
+    ruleOptions (rule) {
+      const label = rule.label
+      const a = rule.a
+      const b = rule.b
+      const c = rule.c
+      return `${label} [${a.toFixed(2)}, ${b.toFixed(2)}, ${c.toFixed(2)}]`
     }
   },
   mounted () {

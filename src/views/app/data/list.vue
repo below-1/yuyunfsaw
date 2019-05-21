@@ -14,7 +14,7 @@
             <td>{{ props.item._id }}</td>
             <td>{{ props.item.nama }}</td>
             <td>
-              <v-btn small icon class="text--primary">
+              <v-btn small icon class="text--primary" :to="`update-data/${props.item._id}`">
                 <v-icon small>create</v-icon>
               </v-btn>
               <v-btn small icon class="text--pink">

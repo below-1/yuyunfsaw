@@ -1,11 +1,13 @@
+const WorkerPlugin = require('worker-plugin')
+
 module.exports = {
   devServer: {
       clientLogLevel: 'info'
   },
   chainWebpack: config => {
     config
-      .entry('worker')
-        .add('src/worker/fsaw.worker.ts')
+      .plugin('workerPlugin')
+        .use(WorkerPlugin)
     //   .plugin()
     //   .rule('worker-ts')
     //     .test(/\.worker\.ts$/)

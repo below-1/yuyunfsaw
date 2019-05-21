@@ -15,12 +15,13 @@
                 <div class="display-4 font-weight-bold" style="padding-top: 100px;">{{ appName }}</div>
                 <div class="headline font-weight-bold">{{ description }}</div>
               </v-flex>
-              <v-flex sm6 align-center justify-center>
-                <v-layout align-center justify-center fill-height>
+              <v-flex md6 align-center justify-center>
+                <v-layout column align-center justify-center fill-height>
                   <font-awesome-icon
                     :icon="['fab', 'foursquare']"
                     class="cyan--text text--darken-3 display-3"
                     style="padding-top: 80px; font-size: 240px !important;"></font-awesome-icon>
+                  <v-btn :to="'/app/data'" dark color="primary" large depressed>Mulai</v-btn>
                 </v-layout>
               </v-flex>
             </v-layout>
@@ -31,7 +32,7 @@
     <v-footer height="auto" app class="py-4">
       <v-layout row>
         <v-flex xs12>
-          <div class="text-xs-center title">Yuyun Sare Ora</div>
+          <div class="text-xs-center title">&copy; Yuyun Saudale</div>
         </v-flex>
       </v-layout>
     </v-footer>

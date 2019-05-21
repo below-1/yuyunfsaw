@@ -28,6 +28,7 @@ export interface Penerima {
 export interface PenerimaEntity extends Penerima {
   _id: string
   _rev: string
+  v: 0.00
 }
 
 export const defaultPenerima: Penerima = {

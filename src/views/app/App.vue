@@ -44,14 +44,14 @@ import { Component, Vue } from 'vue-property-decorator';
           title: 'Settings'
         },
         {
-          path: '/app/summary',
-          icon: 'bar_chart',
-          title: 'Rangkuman'
-        },
-        {
           path: '/app/rank',
           icon: 'title',
           title: 'Ranking'
+        },
+        {
+          path: '/app/sensitivity',
+          icon: 'title',
+          title: 'Sensitivity'
         },
         {
           path: '/logout',

@@ -15,9 +15,9 @@ import {
 } from './optionsTypes'
 
 export const UMUR_OPTIONS: ContFuzzOptions[] = [
-  { start: 17, end: 35, fuzzy: new FuzzyTuple(0.0, 0.5, 0.75, 'M', 'Muda') },
-  { start: 36, end: 55, fuzzy: new FuzzyTuple(0.5, 0.75, 1.0, 'P', 'Parubaya') },
-  { start: 55, end: 1000, fuzzy: new FuzzyTuple(0.5, 0.75, 1.0, 'T', 'Tua') }
+  { start: 17, end: 35, fuzzy: new FuzzyTuple(0.0, 0.0, 0.5, 'M', 'Muda') },
+  { start: 36, end: 55, fuzzy: new FuzzyTuple(0.0, 0.5, 1.0, 'P', 'Parubaya') },
+  { start: 55, end: 1000, fuzzy: new FuzzyTuple(0.5, 1.0, 1.0, 'T', 'Tua') }
 ]
 
 export const PENDIDIKAN_OPTIONS: DiscWeightOptions<KPendidikan>[] = [
@@ -45,8 +45,8 @@ export const PENGHASILAN_OPTIONS: ContFuzzOptions[] = [
   { start: _2JT, end: _100JT, fuzzy: new FuzzyTuple(0.0, 0.0, 0.25, 'SB', 'Sangat Banyak') },
   { start: _1JT, end: _2JT, fuzzy: new FuzzyTuple(0.0, 0.25, 0.50, 'B', 'Banyak') },
   { start: _8RRB, end: _1JT, fuzzy: new FuzzyTuple(0.25, 0.50, 0.75, 'C', 'Cukup') },
-  { start: _5RRB, end: _8RRB, fuzzy: new FuzzyTuple(0.50, 0.75, 0.1, 'S', 'Sedikit') },
-  { start: 0, end: _5RRB, fuzzy: new FuzzyTuple(0.50, 0.75, 0.1, 'S', 'Sangat Sedikit') }
+  { start: _5RRB, end: _8RRB, fuzzy: new FuzzyTuple(0.50, 0.75, 1.0, 'S', 'Sedikit') },
+  { start: 0, end: _5RRB, fuzzy: new FuzzyTuple(0.75, 1.0, 1.0, 'S', 'Sangat Sedikit') }
 ]
 
 export const TANAH_OPTIONS: DiscWeightOptions<KTanah>[] = [
@@ -71,9 +71,9 @@ export const JUMLAH_PENGHUNI_OPTIONS: ContWeightOptions[] = [
 ]
 
 export const C3_OPTIONS: DiscFuzzOptions<C3Enum>[] = [
-  { label: 'Layak', value: C3Enum.Layak, fuzzy: new FuzzyTuple(0.0, 0.5, 0.75, 'L', 'Layak') },
-  { label: 'Cukup Layak', value: C3Enum.CukupLayak, fuzzy: new FuzzyTuple(0.5, 0.75, 1.0, 'Cl', 'Cukup Layak') },
-  { label: 'Tidak Layak', value: C3Enum.TidakLayak, fuzzy: new FuzzyTuple(0.5, 0.75, 1.0, 'TL', 'Tidak Layak') }
+  { label: 'Layak', value: C3Enum.Layak, fuzzy: new FuzzyTuple(0.0, 0.0, 0.5, 'L', 'Layak') },
+  { label: 'Cukup Layak', value: C3Enum.CukupLayak, fuzzy: new FuzzyTuple(0.0, 0.5, 1.0, 'Cl', 'Cukup Layak') },
+  { label: 'Tidak Layak', value: C3Enum.TidakLayak, fuzzy: new FuzzyTuple(0.5, 1.0, 1.0, 'TL', 'Tidak Layak') }
 ]
 
 export const KAMAR_MANDI_OPTIONS: DiscWeightOptions<KKamarMandi>[] = [

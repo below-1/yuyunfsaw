@@ -94,7 +94,8 @@ import fromCsv from '@/services/converter/fromCsv'
           return {
             dataset: this.activeDataset,
             _id: id,
-            ...doc
+            ...doc,
+            v: 0.00
           }
         })
       try {

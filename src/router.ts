@@ -51,6 +51,11 @@ export default new Router({
           path: 'rank',
           name: 'rank',
           component: () => import('./views/app/fsaw/index.vue')
+        },
+        {
+          path: 'sensitivity',
+          name: 'sensitivity',
+          component: () => import('./views/app/sensitivity/index.vue')
         }
       ]
     },

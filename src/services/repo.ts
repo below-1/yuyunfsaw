@@ -28,9 +28,11 @@ class Repo {
     const fid = Math.random() * (MAX_ID - MIN_ID) + MIN_ID
     const intId = Math.floor(fid)
     const _id = `${intId}`
+    const v = 0.00
     await pouchDB.put({
       _id,
-      ...payload
+      ...payload,
+      v
     })
   }
 
@@ -38,8 +40,12 @@ class Repo {
     return await pouchDB.get(id)
   }
 
-  async update (id: string, rev: string, payload: Penerima) {
-
+  async update (id: string, rev: string, payload: PenerimaEntity) {
+    await pouchDB.put({
+      ...payload,
+      _id: id,
+      _rev: rev
+    })
   }
 }
 

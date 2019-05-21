@@ -162,8 +162,9 @@ const fieldsDescriptions = [
       this.activeDataset = settings.activeDataset
     },
     async doUpdatePenerima () {
-      // await repo.add(this.penerima)
-      // this.$router.push('/app/data')
+      await repo.update(this.id, this.rev, this.penerima)
+      alert(`Sukses mengubah data`)
+      this.$router.push('/app/data')
     },
     async loadDataPenerima () {
       if (!this.id) return

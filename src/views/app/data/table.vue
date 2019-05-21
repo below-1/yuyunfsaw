@@ -4,6 +4,9 @@
     <hot-table
       :data="items"
       readOnly
+      :manualColumnResize="true"
+      :columnSorting="true"
+      :manualRowResize="true"
       :columns="hot.colMappings"
       :colHeaders="hot.colHeaders"
       :colWidths="hot.colWidths"
@@ -30,6 +33,7 @@ import formatString from '@/services/converter/format'
 const headers = [
   { text: '#', value: '_id' },
   { text: 'Nama', value: 'nama' },
+  { text: 'V', value: 'v' },
   { text: 'Umur', value: 'format.umur' },
   { text: 'pd', value: 'format.pendidikan' },
   { text: 'PK', value: 'format.pekerjaan' },
@@ -46,7 +50,7 @@ const headers = [
 ]
 
 const colWidths = [
-  250, 250, 200, 200, 200, 200, 200, 200, 200, 200, 200, 200, 200, 200, 200
+  200, 250, 120, 150, 150, 150, 200, 200, 200, 200, 200, 200, 200, 200, 200, 200
 ]
 
 let hotColMappings = headers.map(h => ({ data: h.value }))
@@ -76,7 +80,7 @@ hotColMappings[0] = {
     return td
   }
 }
-const hotColHeaders =  [ '#', 'Nama', 'Umur', 'Pendidikan', 'Pekerjaan', 'Penghasilan', 'Tanah', 'Rumah', 'Jumlah Penghuni', 'Atap', 'Dinding', 'Lantai', 'Kamar Mandi', 'Sumber Air', 'Sumber Listrik' ]
+const hotColHeaders =  [ '#', 'Nama', 'v', 'Umur', 'Pendidikan', 'Pekerjaan', 'Penghasilan', 'Tanah', 'Rumah', 'Jumlah Penghuni', 'Atap', 'Dinding', 'Lantai', 'Kamar Mandi', 'Sumber Air', 'Sumber Listrik' ]
 
 var updHandler = undefined
 var delHandler = undefined
@@ -107,7 +111,7 @@ var delHandler = undefined
         stretchV: 'all',
         preventOverflow: 'horizontal',
         manualColumnFreeze: true,
-        fixedColumnsLeft: 2,
+        fixedColumnsLeft: 3,
         colWidths
       }
     }
