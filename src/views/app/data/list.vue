@@ -17,7 +17,7 @@
               <v-btn small icon class="text--primary" :to="`update-data/${props.item._id}`">
                 <v-icon small>create</v-icon>
               </v-btn>
-              <v-btn small icon class="text--pink">
+              <v-btn small icon class="text--pink" @click="remove(props.item._id, props.item._rev)">
                 <v-icon small>clear</v-icon>
               </v-btn>
             </td>
@@ -71,6 +71,11 @@ const headers = [
     },
     async reload () {
       await this.loadData(this.dataset, this.keyword)
+    },
+    async remove (id, rev) {
+      await repo.delete(id, rev)
+      alert('Sukses mengubah data')
+      await this.reload()
     }
   },
   mounted () {

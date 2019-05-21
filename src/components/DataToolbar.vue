@@ -1,5 +1,5 @@
 <template>
-  <v-toolbar flat color="white">
+  <v-toolbar flat color="primary" dark>
     <v-select :items="datasets" v-model="activeDataset" @change="onDatasetChange" style="max-width: 200px;"></v-select>
     <v-spacer></v-spacer>
     <v-toolbar-items>
@@ -11,7 +11,7 @@
         v-model="keyword"
         @change="onKeywordChange"
       />
-      <v-btn-toggle v-model="mode" @change="onModeChange">
+      <v-btn-toggle v-model="mode" @change="onModeChange" class="white--text primary">
         <v-btn flat icon value="list">
           <v-icon>list</v-icon>
         </v-btn>

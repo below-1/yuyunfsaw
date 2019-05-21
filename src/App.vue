@@ -1,7 +1,7 @@
 <template>
   <v-app>
     <v-content>
-      <v-toolbar app dense flat dark style="padding-left: 0 !important;">
+      <v-toolbar app dense flat dark color="primary darken-2" style="padding-left: 0 !important;">
         <v-toolbar-side-icon>
           <font-awesome-icon size="2x" :icon="['fab', 'foursquare']" class="primary--text text--darken-2"></font-awesome-icon>
         </v-toolbar-side-icon>

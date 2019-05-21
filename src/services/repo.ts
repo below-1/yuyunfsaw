@@ -36,6 +36,10 @@ class Repo {
     })
   }
 
+  async delete (_id: string, _rev: string) {
+    await pouchDB.remove(_id, _rev)
+  }
+
   async findById (id: string) {
     return await pouchDB.get(id)
   }

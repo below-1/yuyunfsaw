@@ -121,7 +121,6 @@ var delHandler = undefined
     // Event delegation for dynamic button inside HOT table
     updHandler = (e) => {
       if (e.target) {
-        console.log(e.target)
         const id = e.target.id
         if (id.startsWith('fsaw-hot-btn-upd')) {
           const pouchId = e.target.getAttribute('data-fsaw-id')
@@ -131,11 +130,28 @@ var delHandler = undefined
       }
       e.stopPropagation()
     }
+    delHandler = async (e) => {
+      if (e.target) {
+        const id = e.target.id
+        if (id.startsWith('fsaw-hot-btn-del')) {
+          const pouchId = e.target.getAttribute('data-fsaw-id')
+          const pouchRev = e.target.getAttribute('data-fsaw-rev')
+          await repo.delete(pouchId, pouchRev)
+          alert('Sukses menghapus data')
+          this.reload()
+        }
+      }
+      e.stopPropagation()
+    }
     document.addEventListener('click', updHandler)
+    document.addEventListener('click', delHandler)
   },
   beforeDestroy () {
     if (updHandler) {
       document.removeEventListener('click', updHandler)
+    }
+    if (deelHandler) {
+      document.removeEventListener('click', delHandler)
     }
   },
   methods: {
